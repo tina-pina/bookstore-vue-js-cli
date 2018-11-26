@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header src="resources/book.svg"/>
-    <BookShelf/>
-    <Footer/>
+    <Header/>
+    <BookShelf v-bind:bookList="books"/>
+    <Carousel v-bind:displayed="carouselDisplayed"></Carousel>
   </div>
 </template>
 
@@ -10,51 +10,57 @@
 import Header from './components/Header'
 import BookShelf from './components/BookShelf'
 import Footer from './components/Footer'
-
+import Carousel from './components/Carousel'
 
 export default {
   name: 'app',
   components: {
     Header,
     BookShelf,
-    Footer 
-  }, 
-  data() {
-    return {
-    
-    };
+    Footer,
+    Carousel
   },
-
-  created() {
-    let url = "https://api.myjson.com/bins/udbm5";
+  data () {
+    return {
+      books: [],
+      carouselDisplayed: false
+    }
+  },
+  created () {
+    let url = 'https://api.myjson.com/bins/udbm5'
 
     fetch(url)
       .then(response => {
         if (response.ok) {
-          console.log("Request succeeded: " + response.statusText);
-          return response.json();
+          console.log('Request succeeded: ' + response.statusText)
+          return response.json()
         }
-
-        throw new Error(response.statusText);
+        throw new Error(response.statusText)
       })
       .then(json => {
         // json = {books: [{}, {}, ....]}
-        console.log(json)
+        this.books = json.books
       })
       .catch(error => {
-        console.log("Request failed: " + error.message);
-      });
+        console.log('Request failed: ' + error.message)
+      })
   }
 
 }
-
 </script>
 
+<style>
+html {
+  background-color: skyblue;
+  margin: 0;
+  padding: 0;
+}
+</style>
 
 <style>
-
-  #app {
-    background-color: skyblue;
-  }
-
+#app {
+  margin: 0;
+  padding: 0;
+  background-color: skyblue;
+}
 </style>

@@ -1,23 +1,22 @@
 <template>
-    <div>
-        <h1>I am footer</h1>
-        <footer>
-            <div>Contact</div>
-            <div>Rules and Regulations</div>
-            <div>Follow us on...</div>
-        
-        </footer>
-    </div>
+        <small class="text-center">THANK YOU FOR VISITING!</small>
 </template>
 
 <script>
-    export default {
-
-        
-    }
-    
+export default {
+  name: 'Footer',
+  props: {
+      msg: String
+  }
+}
 </script>
 
 <style scoped>
-    
+small {
+    width: 100%;
+    text-decoration: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 </style>
