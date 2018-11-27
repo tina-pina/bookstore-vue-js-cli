@@ -1,26 +1,34 @@
 <template>
-     <div>
-        <div class="flip-container">
-          <div class="flip-card-inner">
-            <div class="front"><img v-bind:src="bookObj.portada" /></div>
-            <div class="back">
-              <h3>{{ bookObj.titulo }}</h3>
-              <p>{{ bookObj.descripcion }}</p>
-              <button btn btn-lg btn-primary v-bind:src="bookObj.detalle" v-on:click="toggleCarousel()">MORE</button>
-            </div>
-          </div>
+  <div>
+    <div class="flip-container">
+      <div class="flip-card-inner">
+        <div class="front">
+          <img v-bind:src="bookObj.portada">
+        </div>
+        <div class="back">
+          <h3>{{ bookObj.titulo }}</h3>
+          <p>{{ bookObj.descripcion }}</p>
+          <button
+            btn
+            btn-lg
+            btn-primary
+            v-bind:src="bookObj.detalle"
+            v-on:click="toggleCarousel()"
+          >MORE</button>
         </div>
       </div>
+    </div>
+  </div>
 </template>
 
 
 <script>
 export default {
-  name: 'Book',
+  name: "Book",
   props: {
-      bookObj: Object
+    bookObj: Object
   }
-}
+};
 </script>
 
 <style scoped>

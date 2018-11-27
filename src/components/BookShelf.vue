@@ -6,17 +6,18 @@
   </div>
 </template>
 <script>
-
-import Book from '../components/Book'
+import Book from "../components/Book";
+import BookList from "../views/BookList";
 export default {
-  name: 'BookShelf',
+  name: "BookShelf",
   components: {
-    Book
+    Book,
+    BookList
   },
   props: {
     bookList: Array
   }
-}
+};
 </script>
   
 <style scoped>

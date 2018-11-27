@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BookShelf v-bind:bookList="allBooks"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import BookShelf from "../components/BookShelf";
 
 export default {
-  name: 'home',
+  name: "home",
+  props: {
+    allBooks: Array
+  },
   components: {
-    
+    BookShelf
   }
-}
+};
 </script>
