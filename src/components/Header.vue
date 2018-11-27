@@ -33,6 +33,15 @@ export default {
 </script>
 
 <style scoped>
+
+.container-fluid {
+  background-image: url('../static/dear-dr-donna.jpg')
+}
+
+.container-fluid h1{
+  color: red;
+}
+
 #logo-img img {
   width: 50px;
   height: 100%;
