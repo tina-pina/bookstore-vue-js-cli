@@ -19,7 +19,7 @@
             <div class="field-inside d-flex align-items-center justify-content-center mt-5">
               <div>
                 <div class="pl-1">
-                  <a href="www.google.de">BUY
+                  <a :href="'//' + url" target="_blank">BUY
                     <font-awesome-icon icon="shopping-cart"/>
                   </a>
                 </div>
@@ -44,6 +44,7 @@ export default {
   },
   data() {
     return {
+      url: "www.google.com",
       modal: false
     };
   }
@@ -110,7 +111,7 @@ export default {
 }
 
 .back h3 {
-  margin: 50px 0;
+  margin: 50px 0 25px 0;
   font-weight: bold;
 }
 

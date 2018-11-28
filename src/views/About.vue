@@ -15,10 +15,10 @@
         </div>
       </div>
       <div class="row">
-        <p class="about-text">
-          "A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses.
-          As a physical object, a book is a stack of usually rectangular pages (made of papyrus, parchment, vellum, or paper) oriented with one longer side (either left or right, depending on the direction in which one reads a script) tied, sewn, or otherwise fixed together and then bound to the flexible spine of a protective cover of heavier, relatively inflexible material so that, when the opened front cover has received a massy enough stack of sheets, the book can lie flat. The technical term for this physical arrangement is codex (in the plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its immediate predecessor, the scroll." (source: Wikipedia)
-        </p>
+        <div class="about-text p-5">
+          <p>"A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses.</p>
+          <p>As a physical object, a book is a stack of usually rectangular pages (made of papyrus, parchment, vellum, or paper) oriented with one longer side (either left or right, depending on the direction in which one reads a script) tied, sewn, or otherwise fixed together and then bound to the flexible spine of a protective cover of heavier, relatively inflexible material so that, when the opened front cover has received a massy enough stack of sheets, the book can lie flat. The technical term for this physical arrangement is codex (in the plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its immediate predecessor, the scroll." (source: Wikipedia)</p>
+        </div>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ h1 {
 #logo-img img {
   width: 70%;
   height: 70%;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .about-text {
