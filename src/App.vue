@@ -1,25 +1,32 @@
 <template>
   <div id="app">
-    <div class="container w-100">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a class="navbar-brand" href="#">
+    <div class="container-fullwidth">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light justify-content-between border border-dark"
+      >
+        <a class="navbar-brand" href="/">
           <img src="./static/book.svg" width="30" height="30" class="d-inline-block align-top" alt>
-          Bookstore
+          <span>BOOKSTORE</span>
         </a>
-        <b-nav>
-          <b-nav-item>
+        <b-nav class="border border-dark">
+          <b-nav-item class="text-light bg-secondary">
             <router-link :to="{ name: 'home', params: { books: this.books } }">Home</router-link>
           </b-nav-item>
-          <b-nav-item>
+          <b-nav-item class="text-light bg-info">
             <router-link to="/about">About</router-link>
           </b-nav-item>
-          <b-nav-item>
+          <b-nav-item class="text-light bg-white">
             <router-link :to="{ name: 'bookList', params: { books: this.originalBooks} }">Book List</router-link>
           </b-nav-item>
         </b-nav>
 
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" v-model="search" v-on:keyup.enter="filteredSearch()">
+          <input
+            class="form-control mr-sm-2"
+            v-model="search"
+            placeholder="Search"
+            v-on:keyup.enter="filteredSearch()"
+          >
         </form>
       </nav>
     </div>
@@ -137,5 +144,15 @@ html {
   margin-right: 16px;
   font-size: 17px;
   border: 3px solid #ccc;
+}
+
+.nav-link a {
+  color: skyblue;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navbar-brand span {
+  font-weight: bold;
 }
 </style>

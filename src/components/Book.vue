@@ -8,13 +8,25 @@
         <div class="back">
           <h3>{{ bookObj.titulo }}</h3>
           <p>{{ bookObj.descripcion }}</p>
-          <button
-            btn
-            btn-lg
-            btn-primary
-            v-bind:src="bookObj.detalle"
-            v-on:click="toggleCarousel()"
-          >MORE</button>
+          <div>
+            <button class="info btn btn-lg btn-info">
+              <a target="_blank" v-bind:href="bookObj.detalle">More Info</a>
+            </button>
+          </div>
+
+          <button v-on:click="modal =! modal" class="buy btn btn-lg btn-primary">Buy it here</button>
+          <div v-if="modal" class="modal">
+            <div class="field-inside d-flex align-items-center justify-content-center mt-5">
+              <div>
+                <div class="pl-1">
+                  <a href="www.google.de">BUY
+                    <font-awesome-icon icon="shopping-cart"/>
+                  </a>
+                </div>
+                <button v-on:click="modal =! modal" id="close" class="btn btn-lg btn-primary">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -22,11 +34,18 @@
 </template>
 
 
+
+
 <script>
 export default {
   name: "Book",
   props: {
     bookObj: Object
+  },
+  data() {
+    return {
+      modal: false
+    };
   }
 };
 </script>
@@ -86,9 +105,50 @@ export default {
   transform-origin: center center;
   transform: rotateY(180deg);
   width: 280px;
+  background-color: #f8f9fa;
+  border: 5px solid black;
+}
+
+.back h3 {
+  margin: 50px 0;
+  font-weight: bold;
 }
 
 .back p {
-  font-size: 10px;
+  font-size: 12px;
+  margin: 10px 0;
+  font-style: italic;
 }
+
+.back button.info {
+  margin: 10px 0;
+}
+
+.back button.info a {
+  text-decoration: none;
+  color: white;
+}
+
+.back button#close {
+  margin: 10px 0;
+  background-color: grey;
+}
+
+.modal {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+}
+
+.field-inside {
+  background-color: white;
+  height: 50%;
+}
+
+/* modal */
 </style>

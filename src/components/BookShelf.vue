@@ -14,6 +14,7 @@ export default {
     Book,
     BookList
   },
+
   props: {
     bookList: Array
   }
