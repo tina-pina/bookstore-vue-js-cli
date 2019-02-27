@@ -28,7 +28,7 @@
             class="form-control mr-sm-2 ml-2"
             v-model="search"
             placeholder="Search"
-            v-on:keyup.enter="filteredSearch()"
+            v-on:keyup="filteredSearch()"
           >
         </form>
         <b-button class="m-2 mt-3" variant="success" v-on:click="showAllBooks">all books</b-button>
@@ -85,6 +85,7 @@ export default {
     },
     showAllBooks: function() {
       this.books = this.originalBooks;
+      this.search = "";
     }
   },
   computed: {
