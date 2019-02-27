@@ -1,45 +1,48 @@
 <template>
   <div id="app">
     <div class="container-fullwidth">
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-light justify-content-between border border-dark"
-      >
-        <a class="navbar-brand" href="/">
-          <img src="./static/book.svg" width="30" height="30" class="d-inline-block align-top" alt>
-          <span>BOOKSTORE</span>
-        </a>
-        <b-nav class="border border-dark">
-          <b-nav-item class="text-light bg-secondary">
-            <router-link :to="{ name: 'home', params: { books: this.books } }">Home</router-link>
-          </b-nav-item>
-          <b-nav-item class="text-light bg-info">
-            <router-link to="/about">About</router-link>
-          </b-nav-item>
-          <b-nav-item class="text-light bg-white">
-            <router-link :to="{ name: 'bookList', params: { books: this.originalBooks} }">Book List</router-link>
-          </b-nav-item>
-        </b-nav>
+      <a class="navbar-brand" href="/">
+        <img src="./static/book.svg" width="30" height="30" class="d-inline-block align-top" alt>
+        <span>BOOKSTORE</span>
+      </a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
+        <div class="d-flex pt-2">
+          <b-nav class="border border-dark">
+            <b-nav-item class="text-light bg-secondary">
+              <router-link :to="{ name: 'home', params: { books: this.books } }">Home</router-link>
+            </b-nav-item>
+            <b-nav-item class="text-light bg-info">
+              <router-link to="/about">About</router-link>
+            </b-nav-item>
+            <b-nav-item class="text-light bg-white">
+              <router-link
+                :to="{ name: 'bookList', params: { books: this.originalBooks} }"
+              >Book List</router-link>
+            </b-nav-item>
+          </b-nav>
+        </div>
 
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0 pt-2">
           <input
-            class="form-control mr-sm-2"
+            id="searchField"
+            class="form-control mr-sm-2 ml-2"
             v-model="search"
             placeholder="Search"
             v-on:keyup.enter="filteredSearch()"
           >
         </form>
+        <b-button class="m-2 mt-3" variant="success" v-on:click="showAllBooks">all books</b-button>
       </nav>
     </div>
 
     <div v-if="booksDisplayed">
       <Home v-bind:allBooks="books" v-if="!loading"/>
-      <h1 class="text-center mt-3" v-else>loading!</h1>
+      <h1 class="text-center mt-3" v-else>loading...</h1>
     </div>
 
-    <div v-else>
+    <div>
       <router-view/>
     </div>
-    <!-- <Carousel v-bind:displayed="carouselDisplayed"></Carousel> -->
   </div>
 </template>
 
@@ -79,6 +82,9 @@ export default {
         });
         this.books = filtered;
       }
+    },
+    showAllBooks: function() {
+      this.books = this.originalBooks;
     }
   },
   computed: {
@@ -154,5 +160,19 @@ html {
 
 .navbar-brand span {
   font-weight: bold;
+}
+
+@media only screen and (min-width: 450px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  nav {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

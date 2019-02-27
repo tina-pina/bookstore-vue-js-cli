@@ -15,4 +15,15 @@ export default {
 </script>
   
 <style scoped>
+#book-shelf {
+  padding: 20px 0;
+  background-image: url("../static/list.jpg");
+  opacity: 0.8;
+  color: steelblue;
+}
+
+.listBooksHeader {
+  padding: 20px 0;
+  color: white;
+}
 </style>
